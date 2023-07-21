@@ -1,3 +1,5 @@
+"use strict";
+
 // // let user = {
 // //   name: "Usman",
 // //   address: "H12 Sector",

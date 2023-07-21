@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MERN</title>
-</head>
-<body>
-    <p>MERN Program</p>
-    <button>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <p>MERN Program</p> -->
 
-    </button>
-    <script defer>
+    <!-- <button onclick="btnClick()">LMAO</button> -->
+    <!-- <script defer>
+      //   function btnClick() {
+      //     console.log("Button Click");
+      //     btn = document.getElementsByTagName("button")[0];
+      //     btn.setAttribute("class", "primary");
+      //   }
 
+    // </script> -->
+    <h2>My Fruits List</h2>
+    <ul id="fruits-list">
+      <li>Apple</li>
+      <li>Orange</li>
+      <li>Banana</li>
+      <li>Grapes</li>
+      <li>Watermelon</li>
+    </ul>
+
+    <h3>Add a new fruit:</h3>
+    <input type="text" id="new-fruit" />
+    <button onclick="addFruit()">Add</button>
+
+    <script>
+      // Define the addFruit function in the global scope
+      function addFruit() {
+        var newFruit = document.getElementById("new-fruit").value.trim();
+
+        if (newFruit !== "") {
+          var fruitsList = document.getElementById("fruits-list");
+          var li = document.createElement("li");
+          li.appendChild(document.createTextNode(newFruit));
+          fruitsList.appendChild(li);
+          document.getElementById("new-fruit").value = "";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
