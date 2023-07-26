@@ -1,0 +1,39 @@
+POST http://localhost:3000/User/signUp
+content-type: application/json
+
+{
+    "userName": "user1",
+    "password": "1234"
+}
+
+
+### 
+POST http://localhost:3000/User/signIn
+content-type: application/json
+
+{
+    "userName": "user1",
+    "password": "1234"
+}
+
+###
+POST http://localhost:3000/Admin/signUp
+content-type: application/json
+
+{
+    "userName": "admin1",
+    "password": "4321"
+}
+
+###
+POST http://localhost:3000/Admin/signIn
+content-type: application/json
+
+{
+    "userName": "admin1",
+    "password": "4321"
+}
+
+###
+GET http://localhost:3000/Admin/getUsers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMSIsInBhc3N3b3JkIjoiNDMyMSIsImlhdCI6MTY5MDM3Mjc5OX0.bcxN9H_ZZ2fzCms_XA-E8Sq7JTz9kIhDMLeHVeJp1VQ

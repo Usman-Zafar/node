@@ -50,24 +50,30 @@
 //     }
 //   })();
 
-function add(a, b) {
-  return a + b;
-}
+// function add(a, b) {
+//   return a + b;
+// }
 
-function calculate(a, b, operation) {
-  return new Promise((resolve, reject) => {
-    const result = operation(a, b);
-    if (result > 0) {
-      resolve("Addition Done");
-    } else {
-      reject("Cant be Added");
-    }
-  });
-}
-calculate(9, 3, add)
-  .then((message) => {
-    console.log(message);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// function calculate(a, b, operation) {
+//   return new Promise((resolve, reject) => {
+//     const result = operation(a, b);
+//     if (result > 0) {
+//       resolve("Addition Done");
+//     } else {
+//       reject("Cant be Added");
+//     }
+//   });
+// }
+// calculate(9, 3, add)
+//   .then((message) => {
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+
+const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+fetch(apiUrl)
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.log("ERROR"));

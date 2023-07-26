@@ -5,6 +5,7 @@ const routes = require("./routes");
 
 // Single routing
 
+app.use(express.json());
 app.use(routes);
 app.listen(PORT, function (err) {
   if (err) console.log(err);
