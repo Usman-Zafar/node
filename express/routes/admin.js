@@ -13,9 +13,7 @@ router.get("/products", auth, adminControllers.viewProducts);
 router.get("/Sellers", auth, adminControllers.viewSellers);
 
 // Can view Purchasers
-router.get("/purchaser", auth, (req, res) => {
-  res.send("Show all the available purchasers to admin ");
-});
+router.get("/purchasers", auth, adminControllers.viewPurchasers);
 
 // Can restrict Products, seller, purchasers
 router.put("/purchaser/restrict/:id", auth, (req, res) => {

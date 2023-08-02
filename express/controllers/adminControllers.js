@@ -1,5 +1,5 @@
+//Using Mongo
 const { getCollection } = require("../db/connect");
-
 const adminControllers = {};
 
 // Controller to View Products:
@@ -78,3 +78,5 @@ adminControllers.viewOrders = async (req, res) => {
 };
 
 module.exports = adminControllers;
+
+//Using Mongoose

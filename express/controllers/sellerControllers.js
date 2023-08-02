@@ -1,3 +1,4 @@
+//Using Mongo
 const { getCollection } = require("../db/connect");
 const { ObjectId } = require("mongodb");
 const sellerControllers = {};
@@ -124,3 +125,5 @@ sellerControllers.editOrderStatus = async (req, res) => {
 };
 
 module.exports = sellerControllers;
+
+//Using Mongoose

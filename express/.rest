@@ -35,5 +35,55 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/Admin/getUsers
+GET http://localhost:3000/User/signUp
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMSIsInBhc3N3b3JkIjoiNDMyMSIsImlhdCI6MTY5MDM3Mjc5OX0.bcxN9H_ZZ2fzCms_XA-E8Sq7JTz9kIhDMLeHVeJp1VQ
+
+
+###
+POST http://localhost:4000/seller/signup
+Content-Type: application/json
+
+{
+    "email":"sanaullah@gmail.com",
+    "password":"1234"
+}
+
+###
+POST http://localhost:4000/seller/signin
+Content-Type: application/json
+
+{
+    "email":"sanaullah@gmail.com",
+    "password":"1234"
+}
+
+###
+GET http://localhost:4000/seller/myProducts
+
+
+###
+POST http://localhost:4000/purchaser/signup
+Content-Type: application/json
+
+{
+    "email":"usman@gmail.com",
+    "password":"1234"
+}
+
+###
+POST http://localhost:4000/purchaser/signin
+Content-Type: application/json
+
+{
+    "email":"usman@gmail.com",
+    "password":"1234"
+}
+
+###
+POST http://localhost:4000/seller/product
+Content-Type: application/json
+
+{
+    "name":"HP 15s",
+    "description":"Laptop"
+}

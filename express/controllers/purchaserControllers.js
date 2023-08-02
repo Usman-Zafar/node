@@ -1,18 +1,47 @@
+//Using Mongo
 const { getCollection } = require("../db/connect");
-
+const { ObjectId } = require("mongodb");
 const purchaserControllers = {};
 
 // Controller for Purchaser Signup
-purchaserControllers.Signup = (req, res) => {
-  res.send("Purchaser Signup");
+purchaserControllers.Signup = async (req, res) => {
+  const { email, password } = req.body;
+
+  const purchasersCollection = await getCollection("Purchasers");
+  const existingPurchaser = await purchasersCollection.findOne({ email });
+
+  if (existingPurchaser) {
+    return res
+      .status(400)
+      .json({ error: "Purchaser with this email already exists." });
+  }
+
+  const newPurchaser = { email, password };
+  await purchasersCollection.insertOne(newPurchaser);
+
+  res.send("Purchaser Signup Successful");
 };
 
 // Controller for Purchaser Signin
-purchaserControllers.Signin = (req, res) => {
-  res.send("Purchaser Signin");
-};
+purchaserControllers.Signin = async (req, res) => {
+  const { email, password } = req.body;
 
-// Controller for Purchaser to View All Products
+  const purchasersCollection = await getCollection("Purchasers");
+  const existingPurchaser = await purchasersCollection.findOne({ email });
+
+  if (!existingPurchaser) {
+    return res
+      .status(404)
+      .json({ error: "Purchaser with this email does not exist." });
+  }
+
+  if (existingPurchaser.password !== password) {
+    return res.status(401).json({ error: "Incorrect password." });
+  }
+
+  res.send("Purchaser Signin Successful");
+};
+//Controller for Purchaser to View All Products
 purchaserControllers.viewProducts = async (req, res) => {
   const productsCollection = await getCollection("Products");
   const products = await productsCollection.find({}).toArray();
@@ -74,5 +103,6 @@ purchaserControllers.viewOrders = async (req, res) => {
     .toArray();
   res.json(orders);
 };
-
 module.exports = purchaserControllers;
+
+//Using Mongoose

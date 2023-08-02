@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload Form</title>
+  </head>
+  <body>
+    <h1>Image Upload Form</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+      <br />
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" required></textarea>
+      <br />
+      <input type="file" name="image" id="imageInput" required />
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+      const form = document.getElementById("uploadForm");
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+
+        fetch("/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            message.textContent = data.message;
+          })
+          .catch((error) => {
+            message.textContent = "Error uploading the file.";
+            console.error(error);
+          });
+      });
+    </script>
+  </body>
+</html>

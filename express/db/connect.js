@@ -1,3 +1,4 @@
+//Using Mongo
 const { MongoClient } = require("mongodb");
 const url = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(url);
@@ -22,3 +23,5 @@ const getCollection = async (collectionName) => {
 };
 
 module.exports = { connectToDB, getCollection };
+
+//Using Mongoose
