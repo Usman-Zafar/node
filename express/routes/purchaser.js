@@ -5,7 +5,7 @@ const { Router } = require("express");
 const router = Router();
 
 // Purchasers
-// Router = localhost:8000/purchaser
+// Router = localhost:4000/purchaser
 
 // Purchaser -> Signup -> Signin -> View available products -> add products to cart -> Place order and Checkout via stripe
 

@@ -4,7 +4,7 @@ const { Router } = require("express");
 const router = Router();
 
 // Admins
-// Router = localhost:8000/admin
+// Router = localhost:4000/admin
 
 // Can view Products
 router.get("/products", auth, adminControllers.viewProducts);

@@ -1,16 +1,17 @@
 const auth = require("../middlewares/auth");
 const sellerControllers = require("../controllers/sellerControllers");
+const { saveimage } = require("../middlewares/saveimage");
 
 const { Router } = require("express");
 const router = Router();
 // Sellers
-// Router = localhost:8000/seller
+// Router = localhost:4000/seller
 
 // seller -> signup -> signin -> upload product -> update product -> order view -> edit orders status
 
 // Post Seller signup
 // Credentials save
-router.post("/signup", sellerControllers.Signup);
+router.post("/signup", saveimage.single("file"), sellerControllers.Signup);
 
 // Post Seller Signin
 // Through Credentials and will get JWT
